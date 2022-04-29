@@ -1,0 +1,63 @@
+---
+- hosts: localhost
+  connection: local 
+  become: true
+
+  pre_tasks:
+
+    - name: pre-run | update package cache (debian, etc)
+      tags: always
+      apt: update_cache=yes
+      changed_when: False
+      when: ansible_distribution in ["Debian", "Ubuntu"]
+
+  tasks:
+
+    - name: create ansible users
+      user:
+        name: ansible
+        system: yes
+    
+    - name: set up sudo for ansible user
+      copy:
+        src: files/sudoer_ansible
+        dest: /etc/sudoers.d/ansible
+        owner: root
+        group: root
+        mode: 0440
+
+    - name: install base packages
+      package:
+        name:
+          - htop
+          - tmux
+          - zsh
+          - neofetch
+          - net-tools
+          - git
+          - syncthing
+          - bitwarden
+          - steam
+          - signal
+          - ansible
+          - python3
+          - nmap
+          - iperf3
+          - rsync
+    
+    - name: install nvim from source and configure
+      include_tasks: tasks/nvim-setup/neovim-install.yml
+
+            #    - name: install and configure nvim from source
+            #
+            #
+            #    - name: setup screenbot for discord
+            #
+            #    - name: pulls configs (using stow)
+            #
+            #    - name: setup syncthing service
+            #
+            #    - name: Set mouse sensitivity for gaming
+            #
+            #    - name: setup SMB shares (using autofs?)
+            #
