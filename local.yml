@@ -36,9 +36,9 @@
           - net-tools
           - git
           - syncthing
-          - bitwarden
+            # - bitwarden
           - steam
-          - signal
+            # - signal
           - ansible
           - python3
           - nmap
