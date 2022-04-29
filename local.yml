@@ -63,7 +63,15 @@
           - nmap
           - iperf3
           - rsync
-    
+
+    - name: Install Flatpak packages
+      become: yes
+      community.general.flatpak:
+        name: 
+          - com.bitwarden.desktop
+          - com.discordapp.Discord
+          - org.signal.Signal 
+
     - name: install nvim from source and configure
       include_tasks: tasks/neovim-install.yml
 
