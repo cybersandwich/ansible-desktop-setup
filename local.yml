@@ -65,13 +65,13 @@
           - rsync
 
     - name: Install Flatpak packages
-      method: user
-      state: present
       community.general.flatpak:
         name: 
           - com.bitwarden.desktop
           - com.discordapp.Discord
           - org.signal.Signal 
+        method: user
+        state: present
 
     - name: install nvim from source and configure
       include_tasks: tasks/neovim-install.yml
