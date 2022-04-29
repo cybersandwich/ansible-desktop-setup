@@ -63,16 +63,18 @@
           - nmap
           - iperf3
           - rsync
-    - name: Install Flatpaks
+    - name: Install Signal 
       flatpak:
-        name:
-          - https://flathub.org/repo/appstream/org.signal.Signal.flatpakref
-          - https://flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
-          - https://flathub.org/repo/appstream/io.wavebox.Wavebox.flatpakrefF
+        name: https://flathub.org/repo/appstream/org.signal.Signal.flatpakref
         state: present
         method: user
       become: no 
-
+    - name: Install Discord flatpak 
+      flatpak: 
+        name: https://flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
+        state: present 
+        method: user 
+      become: no
     
     - name: install nvim from source and configure
       include_tasks: tasks/neovim-install.yml
