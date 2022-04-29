@@ -63,30 +63,17 @@
           - nmap
           - iperf3
           - rsync
-
-    - name: flatpak present
-      ansible.builtin.apt:
-        name: flatpak
+    - name: Install Flatpaks
+      flatpak:
+        name:
+          - https://flathub.org/repo/appstream/org.signal.Signal.flatpakref
+          - https://flathub.org/repo/appstream/com.discordapp.Discord.flatpakref
+          - https://flathub.org/repo/appstream/io.wavebox.Wavebox.flatpakrefF
         state: present
-
-    - name: flathub flatpak repo 
-      community.general.flatpak_remote:
-        name: flathub
-        state: present
-        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
-        method: system
+        method: user
       become: no 
 
-    - name: Install Flatpak packages
-      community.general.flatpak:
-        name: 
-          - com.bitwarden.desktop
-          - com.discordapp.Discord 
-          - org.signal.Signal
-        method: user
-        state: present
-      become: no
-
+    
     - name: install nvim from source and configure
       include_tasks: tasks/neovim-install.yml
 
