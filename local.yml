@@ -3,6 +3,25 @@
   connection: local 
   become: true
 
+vars:
+  user: "wes"
+  nvim_git_repo: "https://github.com/neovim/neovim"
+  nvim_config_repo: "https://github.com/cybersandwich/neovim-config"
+  nvim_install_dependencies:
+    - ninja-build
+    - gettext
+    - libtool
+    - libtool-bin
+    - autoconf
+    - automake
+    - cmake 
+    - g++ 
+    - pkg-config
+    - unzip
+    - curl
+    - doxygen
+  nvim_install_root: false
+
   pre_tasks:
 
     - name: pre-run | update package cache (debian, etc)
