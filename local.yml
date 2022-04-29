@@ -64,24 +64,12 @@
           - iperf3
           - rsync
 
-    - name: flatpak present
-      ansible.builtin.apt:
-        name: flatpak
+    - name: Install Discord flatpak
+      flatpak:
+        name: com.discordapp.Discord
         state: present
-
-    - name: flathub flatpak repo 
-      community.general.flatpak_remote:
-        name: flathub
-        state: present
-        flatpakrepo_url: https://flathub.org/repo/flathub.flatpakrepo
-        method: system
-
-    - name: Install Flatpak packages
-      community.general.flatpak:
-        name: com.bitwarden.desktop
         method: user
-        state: present
-
+      
     - name: install nvim from source and configure
       include_tasks: tasks/neovim-install.yml
 
