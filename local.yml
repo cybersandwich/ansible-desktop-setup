@@ -45,8 +45,8 @@
           - iperf3
           - rsync
     
-            #    - name: install nvim from source and configure
-            #      include_tasks: tasks/neovim-install.yml
+    - name: install nvim from source and configure
+      include_tasks: tasks/neovim-install.yml
 
             #    - name: install and configure nvim from source
             #
