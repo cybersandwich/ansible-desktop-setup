@@ -46,7 +46,7 @@
           - rsync
     
     - name: install nvim from source and configure
-      include_tasks: tasks/nvim-setup/neovim-install.yml
+      include_tasks: tasks/neovim-install.yml
 
             #    - name: install and configure nvim from source
             #
