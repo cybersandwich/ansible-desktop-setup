@@ -20,7 +20,7 @@
       - unzip
       - curl
       - doxygen
-    nvim_install_root: false
+    nvim_install_root: true
 
   pre_tasks:
 
