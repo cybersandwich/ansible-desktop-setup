@@ -78,10 +78,7 @@
 
     - name: Install Flatpak packages
       community.general.flatpak:
-        name: 
-          - com.bitwarden.desktop
-          - com.discordapp.Discord
-          - org.signal.Signal 
+        name: com.bitwarden.desktop
         method: user
         state: present
 
