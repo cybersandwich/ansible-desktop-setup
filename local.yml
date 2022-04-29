@@ -65,7 +65,8 @@
           - rsync
 
     - name: Install Flatpak packages
-      become: yes
+      method: user
+      state: present
       community.general.flatpak:
         name: 
           - com.bitwarden.desktop
