@@ -65,10 +65,8 @@
           - rsync
 
     - name: Install Discord flatpak
-      flatpak:
-        name: https://dl.flathub.org/repo/appstream/com.discordapp.Discord.flatpakref 
-        state: present
-        method: user
+      become: no 
+      shell: flatpak install flathub com.discordapp.Discord
       
     - name: install nvim from source and configure
       include_tasks: tasks/neovim-install.yml
