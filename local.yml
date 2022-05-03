@@ -55,6 +55,7 @@
           - net-tools
           - git
           - syncthing
+          - xclip
             # - bitwarden
           - steam
             # - signal
