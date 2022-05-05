@@ -64,7 +64,8 @@
           - nmap
           - iperf3
           - rsync
-    - name: Install Signal 
+
+    - name: Install Signal
       flatpak:
         name: https://flathub.org/repo/appstream/org.signal.Signal.flatpakref
         state: present
